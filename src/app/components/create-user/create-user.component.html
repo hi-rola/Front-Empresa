@@ -1,0 +1,23 @@
+<mat-card class="card-create-user">
+    <mat-card-header>
+        <mat-card-title> Registrar usuario </mat-card-title>
+    </mat-card-header>
+    <form [formGroup]="createUser">
+        <mat-card-content style="margin-top: 10px;">
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName='nombre'>
+                <mat-error *ngIf="esValido('nombre')">{{getErrorMessage('nombre')}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Correo</mat-label>
+                <input matInput formControlName='correo'>
+                <mat-error *ngIf="esValido('correo')">{{getErrorMessage('correo')}}</mat-error>
+            </mat-form-field>
+            <mat-card-actions>
+                <button [disabled]="createUser.invalid" mat-raised-button class="boton"
+                    (click)="guardar()">Guardar</button>
+            </mat-card-actions>
+        </mat-card-content>
+    </form>
+</mat-card>
